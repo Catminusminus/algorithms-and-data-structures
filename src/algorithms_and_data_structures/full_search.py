@@ -18,3 +18,15 @@ def full_search_1(
                 sum_value = temporary_sum_value
 
     return sum_value
+
+
+def full_search_2(list: List[int], sub_sum: int):
+    n = len(list)
+    for i in range(2 ** n):
+        temporary_sum_value = 0
+        for j in range(n):
+            if (i >> j) & 1:
+                temporary_sum_value += list[j]
+        if temporary_sum_value == sub_sum:
+            return True
+    return False
