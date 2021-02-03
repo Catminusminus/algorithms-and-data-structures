@@ -18,3 +18,9 @@ def text_calculate_fibonacci():
     assert expected_one == 1
     expected_three = calculate_fibonacci(4)
     assert expected_three == 3
+
+
+def text_calculate_fibonacci_memorized():
+    table = {}
+    expected_three = calculate_fibonacci_memorized(4, table)
+    assert expected_three == 3
