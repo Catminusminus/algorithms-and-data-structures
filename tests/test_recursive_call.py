@@ -13,14 +13,14 @@ def test_gcd():
     assert expected_five == 5
 
 
-def text_calculate_fibonacci():
+def test_calculate_fibonacci():
     expected_one = calculate_fibonacci(2)
     assert expected_one == 1
     expected_three = calculate_fibonacci(4)
     assert expected_three == 3
 
 
-def text_calculate_fibonacci_memorized():
+def test_calculate_fibonacci_memorized():
     table = {}
     expected_three = calculate_fibonacci_memorized(4, table)
     assert expected_three == 3

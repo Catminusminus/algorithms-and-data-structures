@@ -28,6 +28,8 @@ def calculate_fibonacci_memorized(n: int, table: Dict[int, int]) -> int:
         return 1
     if n in table:
         return table[n]
-    result = calculate_fibonacci_memorized(n - 1) + calculate_fibonacci_memorized(n - 2)
+    result = calculate_fibonacci_memorized(
+        n - 1, table
+    ) + calculate_fibonacci_memorized(n - 2, table)
     table[n] = result
     return result
