@@ -13,3 +13,10 @@ def test_full_search_2():
     assert expected_true
     expected_false = full_search_2([1, 2, 3], 7)
     assert not expected_false
+
+
+def test_full_search_3():
+    expected_true = full_search_3([1, 2, 3], 5)
+    assert expected_true
+    expected_false = full_search_3([1, 2, 5], 4)
+    assert not expected_false

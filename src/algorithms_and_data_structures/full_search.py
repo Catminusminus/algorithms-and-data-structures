@@ -20,7 +20,7 @@ def full_search_1(
     return sum_value
 
 
-def full_search_2(list: List[int], sub_sum: int):
+def full_search_2(list: List[int], sub_sum: int) -> bool:
     n = len(list)
     for i in range(2 ** n):
         temporary_sum_value = 0
@@ -30,3 +30,15 @@ def full_search_2(list: List[int], sub_sum: int):
         if temporary_sum_value == sub_sum:
             return True
     return False
+
+
+def full_search_3(list: List[int], sub_sum: int) -> bool:
+    if sub_sum < 0:
+        return False
+    if sub_sum == 0:
+        return True
+    if list == []:
+        return False
+    return full_search_3(list[1:], sub_sum - list[0]) or full_search_3(
+        list[1:], sub_sum
+    )
