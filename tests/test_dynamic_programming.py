@@ -29,3 +29,8 @@ def test_solve_frog_memorized():
     dp_values = [float("inf") for _ in range(4)]
     expected_two = solve_frog_memorized([7, 5, 6, 5], dp_values)
     assert expected_two == 2
+
+
+def test_solve_knapsack_problem():
+    expected_94 = solve_knapsack_problem([3, 2, 6, 1, 3, 85], [2, 1, 3, 2, 1, 5], 9)
+    assert expected_94 == 94

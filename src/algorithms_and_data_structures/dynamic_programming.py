@@ -1,7 +1,4 @@
-from typing import List
-
-from algorithms_and_data_structures import full_search
-from typing import Dict
+from typing import List, Dict
 
 
 def solve_frog(list: List[int]) -> int:
@@ -78,3 +75,17 @@ def solve_frog_memorized(list: List[int], dp_values: Dict[int, int]) -> int:
         solve_frog_memorized(list[:-2], dp_values) + abs(list[-1] - list[-3]),
     )
     return dp_values[l]
+
+
+def solve_knapsack_problem(values: List[int], weights: List[int], max_weight: int):
+    assert len(values) == len(weights)
+    larger_values = lambda a, b: a if a > b else b
+    dp_values = [[0 for _ in range(max_weight + 1)] for _ in range(len(values) + 1)]
+    for v in range(len(values)):
+        for w in range(max_weight + 1):
+            if w >= weights[v]:
+                dp_values[v + 1][w] = larger_values(
+                    dp_values[v + 1][w], dp_values[v][w - weights[v]] + values[v]
+                )
+            dp_values[v + 1][w] = larger_values(dp_values[v + 1][w], dp_values[v][w])
+    return dp_values[len(values)][max_weight]
