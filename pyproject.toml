@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "algorithms-and-data-structures"
 version = "0.1.0"
-description = ""
+description = "Python implementation for 'Algorithms and Data Structures: for training problem-solving skills'"
 authors = ["Catminusminus <resonafolma@gmail.com>"]
 
 [tool.poetry.dependencies]
