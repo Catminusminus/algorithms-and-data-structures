@@ -34,3 +34,12 @@ def test_solve_frog_memorized():
 def test_solve_knapsack_problem():
     expected_94 = solve_knapsack_problem([3, 2, 6, 1, 3, 85], [2, 1, 3, 2, 1, 5], 9)
     assert expected_94 == 94
+
+
+def test_calculate_edit_distance():
+    expected_one = calculate_edit_distance("ab", "a")
+    assert expected_one == 1
+    expected_zero = calculate_edit_distance("ab", "ab")
+    assert expected_zero == 0
+    expected_two = calculate_edit_distance("ab", "ba")
+    assert expected_two == 2

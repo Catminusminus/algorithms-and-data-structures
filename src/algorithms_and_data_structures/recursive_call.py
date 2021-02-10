@@ -21,15 +21,20 @@ def calculate_fibonacci(n: int) -> int:
     return calculate_fibonacci(n - 1) + calculate_fibonacci(n - 2)
 
 
-def calculate_fibonacci_memorized(n: int, table: Dict[int, int]) -> int:
-    if n == 0:
-        return 0
-    if n == 1:
-        return 1
-    if n in table:
-        return table[n]
-    result = calculate_fibonacci_memorized(
-        n - 1, table
-    ) + calculate_fibonacci_memorized(n - 2, table)
-    table[n] = result
-    return result
+def calculate_fibonacci_memorized(n: int) -> int:
+    table = {}
+
+    def calculate_fibonacci_memorized_impl(n: int, table: Dict[int, int]) -> int:
+        if n == 0:
+            return 0
+        if n == 1:
+            return 1
+        if n in table:
+            return table[n]
+        result = calculate_fibonacci_memorized_impl(
+            n - 1, table
+        ) + calculate_fibonacci_memorized_impl(n - 2, table)
+        table[n] = result
+        return result
+
+    return calculate_fibonacci_memorized_impl(n, table)

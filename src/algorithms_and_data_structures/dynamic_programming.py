@@ -89,3 +89,31 @@ def solve_knapsack_problem(values: List[int], weights: List[int], max_weight: in
                 )
             dp_values[v + 1][w] = larger_values(dp_values[v + 1][w], dp_values[v][w])
     return dp_values[len(values)][max_weight]
+
+
+def calculate_edit_distance(a: str, b: str) -> int:
+    smaller_value = lambda a, b: a if a < b else b
+    inf_value = float("inf")
+    dp_values = [[inf_value for _ in range(len(b) + 1)] for _ in range(len(a) + 1)]
+    dp_values[0][0] = 0
+    for outer in range(len(a) + 1):
+        for inner in range(len(b) + 1):
+            if outer > 0 and inner > 0:
+                dp_values[outer][inner] = (
+                    smaller_value(
+                        dp_values[outer][inner], dp_values[outer - 1][inner - 1]
+                    )
+                    if a[outer - 1] == b[inner - 1]
+                    else smaller_value(
+                        dp_values[outer][inner], dp_values[outer - 1][inner - 1] + 1
+                    )
+                )
+            if outer > 0:
+                dp_values[outer][inner] = smaller_value(
+                    dp_values[outer][inner], dp_values[outer - 1][inner] + 1
+                )
+            if inner > 0:
+                dp_values[outer][inner] = smaller_value(
+                    dp_values[outer][inner], dp_values[outer][inner - 1] + 1
+                )
+    return dp_values[len(a)][len(b)]

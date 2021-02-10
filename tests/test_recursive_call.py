@@ -21,6 +21,5 @@ def test_calculate_fibonacci():
 
 
 def test_calculate_fibonacci_memorized():
-    table = {}
-    expected_three = calculate_fibonacci_memorized(4, table)
+    expected_three = calculate_fibonacci_memorized(4)
     assert expected_three == 3
