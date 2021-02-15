@@ -43,3 +43,7 @@ def test_calculate_edit_distance():
     assert expected_zero == 0
     expected_two = calculate_edit_distance("ab", "ba")
     assert expected_two == 2
+
+
+def test_solve_partition_of_an_interval():
+    pass

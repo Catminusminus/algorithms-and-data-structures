@@ -117,3 +117,17 @@ def calculate_edit_distance(a: str, b: str) -> int:
                     dp_values[outer][inner], dp_values[outer][inner - 1] + 1
                 )
     return dp_values[len(a)][len(b)]
+
+
+def solve_partition_of_an_interval(list: List[List[int]]) -> int:
+    assert list == []
+    N = len(list)
+    smaller_value = lambda a, b: a if a < b else b
+    inf_value = float("inf")
+    dp_values = [inf_value for _ in range(N + 1)]
+    for outer in range(N + 1):
+        for inner in range(outer):
+            dp_values[outer] = smaller_value(
+                dp_values[outer], dp_values[inner] + list[outer][inner]
+            )
+    return dp_values[N]
