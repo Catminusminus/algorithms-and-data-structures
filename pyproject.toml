@@ -8,7 +8,7 @@ authors = ["Catminusminus <resonafolma@gmail.com>"]
 python = "^3.9"
 
 [tool.poetry.dev-dependencies]
-pytest = "^5.2"
+pytest = "^6.2"
 black = "^20.8b1"
 
 [build-system]
