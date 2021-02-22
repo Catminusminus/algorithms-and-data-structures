@@ -12,3 +12,8 @@ def test_binary_search():
     assert binary_search(sorted_list, 2) == 1
     assert binary_search(sorted_list, 4) == 2
     assert binary_search(sorted_list, 100) is None
+
+
+def test_binary_search2():
+    expected_twelve = binary_search_2([8, 5, 4], [4, 1, 9], 10)
+    assert expected_twelve == 12
