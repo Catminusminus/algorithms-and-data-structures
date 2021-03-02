@@ -31,4 +31,4 @@ def binary_search_2(
         if a + list_b[index] < min_value:
             min_value = a + list_b[index]
 
-    return min_value
+    return min_value # type: ignore
