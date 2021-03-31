@@ -33,7 +33,7 @@ def solve_frog_relaxation_1(list: List[int]) -> int:
         dp_values[i] = smaller_value(
             dp_values[i], dp_values[i - 2] + abs(list[i - 2] - list[i])
         )
-    return dp_values[-1] # type: ignore
+    return dp_values[-1]  # type: ignore
 
 
 def solve_frog_relaxation_2(list: list[int]) -> int:
@@ -56,7 +56,7 @@ def solve_frog_relaxation_2(list: list[int]) -> int:
             dp_values[i + 2] = smaller_value(
                 dp_values[i + 2], dp_values[i] + abs(list[i + 2] - list[i])
             )
-    return dp_values[-1] # type: ignore
+    return dp_values[-1]  # type: ignore
 
 
 def solve_frog_memorized(list: List[int], dp_values: Dict[int, int]) -> int:
@@ -116,7 +116,7 @@ def calculate_edit_distance(a: str, b: str) -> int:
                 dp_values[outer][inner] = smaller_value(
                     dp_values[outer][inner], dp_values[outer][inner - 1] + 1
                 )
-    return dp_values[len(a)][len(b)] # type: ignore
+    return dp_values[len(a)][len(b)]  # type: ignore
 
 
 def solve_partition_of_an_interval(list: List[List[int]]) -> int:
@@ -130,4 +130,4 @@ def solve_partition_of_an_interval(list: List[List[int]]) -> int:
             dp_values[outer] = smaller_value(
                 dp_values[outer], dp_values[inner] + list[outer][inner]
             )
-    return dp_values[N] #type: ignore
+    return dp_values[N]  # type: ignore

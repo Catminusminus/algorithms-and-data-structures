@@ -1,4 +1,4 @@
-from typing import List, Optional
+from typing import List, Optional, Union
 from bisect import bisect_left
 
 
@@ -31,4 +31,28 @@ def binary_search_2(
         if a + list_b[index] < min_value:
             min_value = a + list_b[index]
 
-    return min_value # type: ignore
+    return min_value  # type: ignore
+
+
+def solve_shooting_king(h: List[int], s: List[int]) -> int:
+    assert len(h) == len(s)
+    left = 0
+    right = int(1e8)
+    while left + 1 < right:
+        mid = (left + right) // 2
+        time_limit = [0 for _ in range(len(h))]
+        ok = True
+        for i in range(len(h)):
+            if mid < h[i]:
+                ok = False
+            else:
+                time_limit[i] = (mid - h[i]) / s[i]
+        time_limit.sort()
+        for i in range(len(h)):
+            if time_limit[i] < i:
+                ok = False
+        if ok:
+            right = mid
+        else:
+            left = mid
+    return right
